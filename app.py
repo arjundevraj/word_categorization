@@ -22,9 +22,32 @@ def get_list():
 				stim_list.append(int(x))
 	return jsonify({"resp": stim_list, "num": num})
 
+@app.route('/save-data', methods=['POST'])
+def save_data():
+	num = int(request.form["num"])
+	results_raw = request.form.getlist("results[]")
+	results = [int(x) for x in results_raw]
+	results.insert(0, num)
+	print(results)
+
+	all_results = []
+	s3 = boto3.resource('s3')
+	obj = s3.Object('psy454', 'results.csv')
+	with io.StringIO(obj.get()['Body'].read().decode('utf-8')) as fp:
+		reader = csv.reader(fp)
+		for row in reader:
+			all_results.append(row)
+	
+	all_results.append(results)
+	with io.StringIO() as buffer:
+		writer = csv.writer(buffer)
+		for result in all_results:
+			writer.writerow(result)
+		obj.put(Body=buffer.getvalue())
+	return "OK"
+
 @app.route('/exit-early', methods=['POST'])
 def exit_early():
-	print("Reached")
 	num = int(request.form["num"])
 	s3 = boto3.resource('s3')
 	obj = s3.Object('psy454', 'available_lists.csv')

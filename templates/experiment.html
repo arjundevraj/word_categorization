@@ -13,6 +13,7 @@
 		
 	/* create timeline */
 	var timeline = [];
+	var results = [];
 	var stims = null;
 	var list_num = null;
 	
@@ -58,8 +59,10 @@
 			on_finish: function(data) { 
     			if(data.key_press == 49){
       				data.correct = true;
+					results.push(1);
     			} else {
       				data.correct = false;
+					results.push(2);
     			}
 			}
 		},
@@ -71,8 +74,10 @@
 			on_finish: function(data) { 
     			if(data.key_press == 49){
       				data.correct = true;
+					results.push(1);
     			} else {
       				data.correct = false;
+					results.push(2);
     			}
 			}
 		},
@@ -84,8 +89,10 @@
 			on_finish: function(data) { 
     			if(data.key_press == 49){
       				data.correct = true;
+					results.push(1);
     			} else {
       				data.correct = false;
+					results.push(2);
     			}
 			} 
 		},
@@ -97,8 +104,10 @@
 			on_finish: function(data) { 
     			if(data.key_press == 49){
       				data.correct = true;
+					results.push(1);
     			} else {
       				data.correct = false;
+					results.push(2);
     			}
 			}  
 		},
@@ -110,8 +119,10 @@
 			on_finish: function(data) { 
     			if(data.key_press == 49){
       				data.correct = true;
+					results.push(1);
     			} else {
       				data.correct = false;
+					results.push(2);
     			}
 			}  
 		},
@@ -123,8 +134,10 @@
 			on_finish: function(data) { 
     			if(data.key_press == 49){
       				data.correct = true;
+					results.push(1);
     			} else {
       				data.correct = false;
+					results.push(2);
     			}
 			}   
 		},
@@ -136,8 +149,10 @@
 			on_finish: function(data) { 
     			if(data.key_press == 49){
       				data.correct = true;
+					results.push(1);
     			} else {
       				data.correct = false;
+					results.push(2);
     			}
 			}  
 		 },
@@ -149,8 +164,10 @@
 			on_finish: function(data) { 
     			if(data.key_press == 50){
       				data.correct = true;
+					results.push(2);
     			} else {
-      			data.correct = false;
+      				data.correct = false;
+					results.push(1);
     			}
 			}   
 		},
@@ -162,8 +179,10 @@
 			on_finish: function(data) { 
     			if(data.key_press == 50){
       				data.correct = true;
+					results.push(2);
     			} else {
-      			data.correct = false;
+      				data.correct = false;
+					results.push(1);
     			}
 			}    
 		},
@@ -175,8 +194,10 @@
 			on_finish: function(data) { 
     			if(data.key_press == 50){
       				data.correct = true;
+					results.push(2);
     			} else {
       				data.correct = false;
+					results.push(1);
     			}
 			}    
 		},
@@ -188,8 +209,10 @@
 			on_finish: function(data) { 
     			if(data.key_press == 50){
       				data.correct = true;
+					results.push(2);
     			} else {
       				data.correct = false;
+					results.push(1);
     			}
 			}    
 		},
@@ -201,8 +224,10 @@
 			on_finish: function(data) { 
     			if(data.key_press == 50){
       				data.correct = true;
+					results.push(2);
     			} else {
       				data.correct = false;
+					results.push(1);
     			}
 			}    
 		},
@@ -214,8 +239,10 @@
 			on_finish: function(data) { 
     			if(data.key_press == 50){
       				data.correct = true;
+					results.push(2);
     			} else {
       				data.correct = false;
+					results.push(1);
     			}
 			}    
 		},
@@ -227,8 +254,10 @@
 			on_finish: function(data) { 
     			if(data.key_press == 50){
       				data.correct = true;
+					results.push(2);
     			} else {
       				data.correct = false;
+					results.push(1);
     			}
 			}    
 		}
@@ -258,6 +287,12 @@
 		type: "html-keyboard-response",
 		stimulus: function() {
 			reached_end = 1;
+			var all_data = jsPsych.data.get();
+			console.log(all_data.csv());
+			$.ajax("/save-data", {
+					type: "POST",
+					data: {"num": list_num, "results": results}
+				});
 			return '<p style="font-size:30px;">Thank you for your time! <b>Press any key to complete the experiment.</b></p>';
 		}
 	};
@@ -278,4 +313,4 @@
 		async: false
 	});
 	</script>
-</html
+</html>
