@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<title>Categorization Experiment</title>
+		<script src="../static/js/jspsych.js"></script>
+		<script src="../static/js/plugins/jspsych-html-keyboard-response.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="../static/js/stimuli.js"></script>
+		<link href="../static/css/jspsych.css" rel="stylesheet" type="text/css"></link>
+    </head>
+	<body></body>
+	<script>
+		
+	/* create timeline */
+	var timeline = [];
+	var stims = null;
+	var list_num = null;
+	
+	$.ajax("/get-list", {
+		type: "GET",
+		success: function(response) {
+			stims = response["resp"];
+			list_num = response["num"];
+		},
+		error: function(error) {
+			console.log("error");
+		},
+		async: false
+	});
+	
+	/* define welcome message trial */
+	var welcome = {
+		type: "html-keyboard-response",
+		stimulus: '<p style="font-size:30px;">Welcome to the experiment! <b>Press any key to begin.</b></p>'
+	};
+	timeline.push(welcome);
+
+		/* define instructions trial */
+	var instructions = {
+      type: "html-keyboard-response",
+      stimulus: '<p style="font-size:22px;">In each trial of this experiment, a nonsensical word will appear at the ' +
+	  'center of the screen.</p><p style="font-size:22px;">If you think the word belongs to category 1, press the ' + 
+	  'number <b>1</b> on your keyboard.</p><p style="font-size:22px;">If you think the word belongs to category 2, press the ' +
+	  'number <b>2</b> on your keyboard.</p><p style="font-size:22px;">After each trial, you will be informed (for 1 second) of whether your category choice ' +
+	  'for that word was correct or incorrect.</p><p style="font-size:22px;">There are <b>14</b> different words in total, and each word belongs to <b>exactly and only one</b> of the two categories.</p>' +
+	  '<p style="font-size:22px;">Over the entire experiment, your goal is to learn which category each word belongs to.</p>' +
+	  '<br><p style="font-size:22px;"><b>Press any key to begin.</b></p>'
+    };
+    timeline.push(instructions);
+
+	/* trial stimuli */
+    var trial_stimuli = [
+		{
+			type: 'html-keyboard-response', 
+			stimulus: '<div style="font-size:60px;">banuly</div>',
+			choices: ['1', '2'], 
+			data: {correct_response: '1'}, 
+			on_finish: function(data) { 
+    			if(data.key_press == 49){
+      				data.correct = true;
+    			} else {
+      				data.correct = false;
+    			}
+			}
+		},
+		{
+			type: 'html-keyboard-response', 
+			stimulus: '<div style="font-size:60px;">benuly</div>',
+			choices: ['1', '2'], 
+			data: {correct_response: '1'}, 
+			on_finish: function(data) { 
+    			if(data.key_press == 49){
+      				data.correct = true;
+    			} else {
+      				data.correct = false;
+    			}
+			}
+		},
+		{
+			type: 'html-keyboard-response', 
+			stimulus: '<div style="font-size:60px;">kanuly</div>',
+			choices: ['1', '2'], 
+			data: {correct_response: '1'},
+			on_finish: function(data) { 
+    			if(data.key_press == 49){
+      				data.correct = true;
+    			} else {
+      				data.correct = false;
+    			}
+			} 
+		},
+		{
+			type: 'html-keyboard-response', 
+			stimulus: '<div style="font-size:60px;">banilo</div>',
+			choices: ['1', '2'],
+			data: {correct_response: '1'},
+			on_finish: function(data) { 
+    			if(data.key_press == 49){
+      				data.correct = true;
+    			} else {
+      				data.correct = false;
+    			}
+			}  
+		},
+		{
+			type: 'html-keyboard-response', 
+			stimulus: '<div style="font-size:60px;">kanulo</div>',
+			choices: ['1', '2'], 
+			data: {correct_response: '1'},
+			on_finish: function(data) { 
+    			if(data.key_press == 49){
+      				data.correct = true;
+    			} else {
+      				data.correct = false;
+    			}
+			}  
+		},
+		{
+			type: 'html-keyboard-response', 
+			stimulus: '<div style="font-size:60px;">bapury</div>',
+			choices: ['1', '2'],
+			data: {correct_response: '1'},
+			on_finish: function(data) { 
+    			if(data.key_press == 49){
+      				data.correct = true;
+    			} else {
+      				data.correct = false;
+    			}
+			}   
+		},
+		{
+			type: 'html-keyboard-response', 
+			stimulus: '<div style="font-size:60px;">bepuly</div>',
+			choices: ['1', '2'],
+			data: {correct_response: '1'},
+			on_finish: function(data) { 
+    			if(data.key_press == 49){
+      				data.correct = true;
+    			} else {
+      				data.correct = false;
+    			}
+			}  
+		 },
+		{
+			type: 'html-keyboard-response', 
+			stimulus: '<div style="font-size:60px;">kepiro</div>',
+			choices: ['1', '2'],
+			data: {correct_response: '2'},
+			on_finish: function(data) { 
+    			if(data.key_press == 50){
+      				data.correct = true;
+    			} else {
+      			data.correct = false;
+    			}
+			}   
+		},
+		{
+			type: 'html-keyboard-response', 
+			stimulus: '<div style="font-size:60px;">kepilo</div>',
+			choices: ['1', '2'],
+			data: {correct_response: '2'},
+			on_finish: function(data) { 
+    			if(data.key_press == 50){
+      				data.correct = true;
+    			} else {
+      			data.correct = false;
+    			}
+			}    
+		},
+		{
+			type: 'html-keyboard-response', 
+			stimulus: '<div style="font-size:60px;">keniro</div>',
+			choices: ['1', '2'],
+			data: {correct_response: '2'},
+			on_finish: function(data) { 
+    			if(data.key_press == 50){
+      				data.correct = true;
+    			} else {
+      				data.correct = false;
+    			}
+			}    
+		},
+		{
+			type: 'html-keyboard-response', 
+			stimulus: '<div style="font-size:60px;">kapiry</div>',
+			choices: ['1', '2'],
+			data: {correct_response: '2'},
+			on_finish: function(data) { 
+    			if(data.key_press == 50){
+      				data.correct = true;
+    			} else {
+      				data.correct = false;
+    			}
+			}    
+		},
+		{
+			type: 'html-keyboard-response', 
+			stimulus: '<div style="font-size:60px;">bepiry</div>',
+			choices: ['1', '2'],
+			data: {correct_response: '2'},
+			on_finish: function(data) { 
+    			if(data.key_press == 50){
+      				data.correct = true;
+    			} else {
+      				data.correct = false;
+    			}
+			}    
+		},
+		{
+			type: 'html-keyboard-response', 
+			stimulus: '<div style="font-size:60px;">kapuro</div>',
+			choices: ['1', '2'],
+			data: {correct_response: '2'},
+			on_finish: function(data) { 
+    			if(data.key_press == 50){
+      				data.correct = true;
+    			} else {
+      				data.correct = false;
+    			}
+			}    
+		},
+		{
+			type: 'html-keyboard-response', 
+			stimulus: '<div style="font-size:60px;">beniro</div>',
+			choices: ['1', '2'],
+			data: {correct_response: '2'},
+			on_finish: function(data) { 
+    			if(data.key_press == 50){
+      				data.correct = true;
+    			} else {
+      				data.correct = false;
+    			}
+			}    
+		}
+	];
+	
+	var feedback = {
+		type: 'html-keyboard-response',
+		choices: jsPsych.NO_KEYS,
+  		stimulus: function() {
+    		var last_trial_correct = jsPsych.data.get().last(1).values()[0].correct;
+    		if(last_trial_correct){
+      			return '<div style="font-size:60px; color:lime;">Correct</div>';
+    		} else {
+      			return '<div style="font-size:60px; color:red;">Incorrect</div>';
+  	  		}
+		},
+		trial_duration: 1000
+	};
+
+	var i;
+	for (i = 0; i < 392; i++) {
+		timeline.push(trial_stimuli[stims[i]], feedback);
+	}
+
+	var reached_end = 0;
+	var debrief = {
+		type: "html-keyboard-response",
+		stimulus: function() {
+			reached_end = 1;
+			return '<p style="font-size:30px;">Thank you for your time! <b>Press any key to complete the experiment.</b></p>';
+		}
+	};
+	timeline.push(debrief);
+	
+	/* start the experiment */
+	jsPsych.init({
+		timeline: timeline,
+		show_progress_bar: true,
+		on_close: function() {
+			if (reached_end == 0) {
+				$.ajax("/exit-early", {
+					type: "POST",
+					data: {"num": list_num}
+				});
+			}
+		},
+		async: false
+	});
+	</script>
+</html
