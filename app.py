@@ -13,6 +13,8 @@ def home():
 @app.route('/get-list', methods=['GET'])
 def get_list():
 	num = cvs_num()
+	if num == -1:
+		return "Something wrong happened", 500
 	parent_dir = os.path.dirname(os.path.abspath(__file__))
 	filename = os.path.join(parent_dir, 'stimuli/stim_list_' + str(num) + '.csv')
 	stim_list = []
@@ -75,6 +77,8 @@ def cvs_num():
 		for row in reader:
 			for item in row:
 				available_list.append(int(item))
+	if len(available_list) == 0:
+		return -1
 	curr = min(available_list)
 	print(available_list)
 	print(curr)

@@ -25,6 +25,7 @@
 		},
 		error: function(error) {
 			console.log("error");
+			alert("Data collection for this experiment has now concluded.");
 		},
 		async: false
 	});
@@ -45,6 +46,7 @@
 	  'number <b>2</b> on your keyboard.</p><p style="font-size:22px;">After each trial, you will be informed (for 1 second) of whether your category choice ' +
 	  'for that word was correct or incorrect.</p><p style="font-size:22px;">Each word belongs to <b>exactly and only one</b> of the two categories.</p>' +
 	  '<p style="font-size:22px;">Over the entire experiment, your goal is to learn which category each word belongs to.</p>' +
+	  '<p style="font-size:22px;">This experiment will take 15-20 min. in total; please complete it in <b>one sitting</b>.</p>' +
 	  '<br><p style="font-size:22px;"><b>Press any key to begin.</b></p>'
     };
     timeline.push(instructions);
