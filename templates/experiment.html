@@ -4,6 +4,7 @@
 		<title>Categorization Experiment</title>
 		<script src="../static/js/jspsych.js"></script>
 		<script src="../static/js/plugins/jspsych-html-keyboard-response.js"></script>
+		<script src="../static/js/plugins/jspsych-external-html.js"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="../static/js/stimuli.js"></script>
 		<link href="../static/css/jspsych.css" rel="stylesheet" type="text/css"></link>
@@ -16,7 +17,34 @@
 	var results = [];
 	var stims = null;
 	var list_num = null;
-	
+
+	/* define welcome message trial */
+	var welcome = {
+		type: "html-keyboard-response",
+		stimulus: '<p style="font-size:30px;">Welcome to the experiment! <b>Press any key to continue.</b></p>'
+	};
+	timeline.push(welcome);
+
+	var check_consent = function(elem) {
+  		if (document.getElementById('consent_checkbox').checked) {
+    		return true;
+ 		}
+  		else {
+    		alert("If you wish to participate, you must check the box next to the statement 'I agree to participate in this study.'");
+    		return false;
+  		}
+  		return false;
+	};
+	// declare the block.
+	var consent = {
+  		type:'external-html',
+  		url: "consent.html",
+  		cont_btn: "start",
+  		check_fn: check_consent
+	};
+
+	timeline.push(consent);
+
 	$.ajax("/get-list", {
 		type: "GET",
 		success: function(response) {
@@ -29,13 +57,6 @@
 		},
 		async: false
 	});
-	
-	/* define welcome message trial */
-	var welcome = {
-		type: "html-keyboard-response",
-		stimulus: '<p style="font-size:30px;">Welcome to the experiment! <b>Press any key to begin.</b></p>'
-	};
-	timeline.push(welcome);
 
 		/* define instructions trial */
 	var instructions = {

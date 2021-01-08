@@ -10,6 +10,10 @@ app = Flask(__name__)
 def home():
 	return render_template("experiment.html")
 
+@app.route('/consent.html')
+def consent():
+	return render_template("consent.html")
+
 @app.route('/get-list', methods=['GET'])
 def get_list():
 	num = cvs_num()
