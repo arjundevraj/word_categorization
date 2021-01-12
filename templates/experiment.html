@@ -308,6 +308,7 @@
 	var reached_end = 0;
 	var debrief = {
 		type: "html-keyboard-response",
+		choices: jsPsych.NO_KEYS,
 		stimulus: function() {
 			reached_end = 1;
 			var all_data = jsPsych.data.get();
@@ -316,7 +317,7 @@
 					type: "POST",
 					data: {"num": list_num, "results": results}
 				});
-			return '<p style="font-size:30px;">Thank you for your time! Your Completion Code is <b>69B812D8</b>. Press any key to complete the experiment.</p>';
+			return '<p style="font-size:25px;">Thank you for your time! Your Completion Code is <b>69B812D8</b>. You have completed the experiment.</p>';
 		}
 	};
 	timeline.push(debrief);
