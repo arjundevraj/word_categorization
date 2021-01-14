@@ -67,7 +67,7 @@
 	  'number <b>2</b> on your keyboard.</p><p style="font-size:22px;">After each trial, you will be informed (for 1 second) of whether your category choice ' +
 	  'for that word was correct or incorrect.</p><p style="font-size:22px;">Each word belongs to <b>exactly and only one</b> of the two categories.</p>' +
 	  '<p style="font-size:22px;">Over the entire experiment, your goal is to learn which category each word belongs to.</p>' +
-	  '<p style="font-size:22px;">This experiment will take 15-20 min. in total; please complete it in <b>one sitting</b>.</p>' +
+	  '<p style="font-size:22px;">This experiment will take 30 min. in total; please complete it in <b>one sitting</b>.</p>' +
 	  '<br><p style="font-size:22px;"><b>Press any key to begin.</b></p>'
     };
     timeline.push(instructions);
@@ -76,7 +76,7 @@
     var trial_stimuli = [
 		{
 			type: 'html-keyboard-response', 
-			stimulus: '<div style="font-size:60px;">banuly</div>',
+			stimulus: '<div style="font-size:60px;">gafuzi</div>',
 			choices: ['1', '2'], 
 			data: {correct_response: '1'}, 
 			on_finish: function(data) { 
@@ -91,7 +91,7 @@
 		},
 		{
 			type: 'html-keyboard-response', 
-			stimulus: '<div style="font-size:60px;">benuly</div>',
+			stimulus: '<div style="font-size:60px;">wafuzi</div>',
 			choices: ['1', '2'], 
 			data: {correct_response: '1'}, 
 			on_finish: function(data) { 
@@ -106,7 +106,7 @@
 		},
 		{
 			type: 'html-keyboard-response', 
-			stimulus: '<div style="font-size:60px;">kanuly</div>',
+			stimulus: '<div style="font-size:60px;">gyfuzi</div>',
 			choices: ['1', '2'], 
 			data: {correct_response: '1'},
 			on_finish: function(data) { 
@@ -121,7 +121,7 @@
 		},
 		{
 			type: 'html-keyboard-response', 
-			stimulus: '<div style="font-size:60px;">banilo</div>',
+			stimulus: '<div style="font-size:60px;">gasuzi</div>',
 			choices: ['1', '2'],
 			data: {correct_response: '1'},
 			on_finish: function(data) { 
@@ -136,7 +136,7 @@
 		},
 		{
 			type: 'html-keyboard-response', 
-			stimulus: '<div style="font-size:60px;">kanulo</div>',
+			stimulus: '<div style="font-size:60px;">gafuri</div>',
 			choices: ['1', '2'], 
 			data: {correct_response: '1'},
 			on_finish: function(data) { 
@@ -151,7 +151,7 @@
 		},
 		{
 			type: 'html-keyboard-response', 
-			stimulus: '<div style="font-size:60px;">bapury</div>',
+			stimulus: '<div style="font-size:60px;">gafuzo</div>',
 			choices: ['1', '2'],
 			data: {correct_response: '1'},
 			on_finish: function(data) { 
@@ -166,7 +166,7 @@
 		},
 		{
 			type: 'html-keyboard-response', 
-			stimulus: '<div style="font-size:60px;">bepuly</div>',
+			stimulus: '<div style="font-size:60px;">wysezo</div>',
 			choices: ['1', '2'],
 			data: {correct_response: '1'},
 			on_finish: function(data) { 
@@ -181,7 +181,7 @@
 		 },
 		{
 			type: 'html-keyboard-response', 
-			stimulus: '<div style="font-size:60px;">kepiro</div>',
+			stimulus: '<div style="font-size:60px;">wysero</div>',
 			choices: ['1', '2'],
 			data: {correct_response: '2'},
 			on_finish: function(data) { 
@@ -196,7 +196,7 @@
 		},
 		{
 			type: 'html-keyboard-response', 
-			stimulus: '<div style="font-size:60px;">kepilo</div>',
+			stimulus: '<div style="font-size:60px;">gysero</div>',
 			choices: ['1', '2'],
 			data: {correct_response: '2'},
 			on_finish: function(data) { 
@@ -211,7 +211,7 @@
 		},
 		{
 			type: 'html-keyboard-response', 
-			stimulus: '<div style="font-size:60px;">keniro</div>',
+			stimulus: '<div style="font-size:60px;">wasero</div>',
 			choices: ['1', '2'],
 			data: {correct_response: '2'},
 			on_finish: function(data) { 
@@ -226,7 +226,7 @@
 		},
 		{
 			type: 'html-keyboard-response', 
-			stimulus: '<div style="font-size:60px;">kapiry</div>',
+			stimulus: '<div style="font-size:60px;">wyfero</div>',
 			choices: ['1', '2'],
 			data: {correct_response: '2'},
 			on_finish: function(data) { 
@@ -241,7 +241,7 @@
 		},
 		{
 			type: 'html-keyboard-response', 
-			stimulus: '<div style="font-size:60px;">bepiry</div>',
+			stimulus: '<div style="font-size:60px;">wysuro</div>',
 			choices: ['1', '2'],
 			data: {correct_response: '2'},
 			on_finish: function(data) { 
@@ -256,7 +256,7 @@
 		},
 		{
 			type: 'html-keyboard-response', 
-			stimulus: '<div style="font-size:60px;">kapuro</div>',
+			stimulus: '<div style="font-size:60px;">wyseri</div>',
 			choices: ['1', '2'],
 			data: {correct_response: '2'},
 			on_finish: function(data) { 
@@ -271,7 +271,7 @@
 		},
 		{
 			type: 'html-keyboard-response', 
-			stimulus: '<div style="font-size:60px;">beniro</div>',
+			stimulus: '<div style="font-size:60px;">gafezi</div>',
 			choices: ['1', '2'],
 			data: {correct_response: '2'},
 			on_finish: function(data) { 
@@ -301,7 +301,7 @@
 	};
 
 	var i;
-	for (i = 0; i < 392; i++) {
+	for (i = 0; i < 616; i++) {
 		timeline.push(trial_stimuli[stims[i]], feedback);
 	}
 

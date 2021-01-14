@@ -3,7 +3,7 @@ import boto3
 import io
 
 available_list = []
-for i in range(1, 101):
+for i in range(102, 201, 2):
 	available_list.append(int(i))
 print(available_list)
 s3 = boto3.resource('s3')
