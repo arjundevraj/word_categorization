@@ -3,7 +3,7 @@ import boto3
 import io
 
 available_list = []
-for i in range(102, 301, 2):
+for i in range(101, 300):
 	available_list.append(int(i))
 print(available_list)
 print(len(available_list))
