@@ -72,218 +72,654 @@
     };
     timeline.push(instructions);
 
+	var index = null;
+	var indicator = (parseInt(list_num) - 100) % 6;
+	if (indicator == 1 || indicator == 2) {
+		index = 0;
+	} else if (indicator == 3 || indicator == 4) {
+		index = 1;
+	} else {
+		index = 2;
+	}
+
 	/* trial stimuli */
     var trial_stimuli = [
-		{
-			type: 'html-keyboard-response', 
-			stimulus: '<div style="font-size:60px;">gafuzi</div>',
-			choices: ['1', '2'], 
-			data: {correct_response: '1'}, 
-			on_finish: function(data) { 
-    			if(data.key_press == 49){
-      				data.correct = true;
-					results.push(1);
-    			} else {
-      				data.correct = false;
-					results.push(2);
-    			}
+		[
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">gafuzi</div>',
+				choices: ['1', '2'], 
+				data: {correct_response: '1'}, 
+				on_finish: function(data) { 
+					if(data.key_press == 49){
+						data.correct = true;
+						results.push(1);
+					} else {
+						data.correct = false;
+						results.push(2);
+					}
+				}
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">wafuzi</div>',
+				choices: ['1', '2'], 
+				data: {correct_response: '1'}, 
+				on_finish: function(data) { 
+					if(data.key_press == 49){
+						data.correct = true;
+						results.push(1);
+					} else {
+						data.correct = false;
+						results.push(2);
+					}
+				}
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">gyfuzi</div>',
+				choices: ['1', '2'], 
+				data: {correct_response: '1'},
+				on_finish: function(data) { 
+					if(data.key_press == 49){
+						data.correct = true;
+						results.push(1);
+					} else {
+						data.correct = false;
+						results.push(2);
+					}
+				} 
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">gasuzi</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '1'},
+				on_finish: function(data) { 
+					if(data.key_press == 49){
+						data.correct = true;
+						results.push(1);
+					} else {
+						data.correct = false;
+						results.push(2);
+					}
+				}  
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">gafuri</div>',
+				choices: ['1', '2'], 
+				data: {correct_response: '1'},
+				on_finish: function(data) { 
+					if(data.key_press == 49){
+						data.correct = true;
+						results.push(1);
+					} else {
+						data.correct = false;
+						results.push(2);
+					}
+				}  
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">gafuzo</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '1'},
+				on_finish: function(data) { 
+					if(data.key_press == 49){
+						data.correct = true;
+						results.push(1);
+					} else {
+						data.correct = false;
+						results.push(2);
+					}
+				}   
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">gafezi</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '1'},
+				on_finish: function(data) { 
+					if(data.key_press == 49){
+						data.correct = true;
+						results.push(1);
+					} else {
+						data.correct = false;
+						results.push(2);
+					}
+				}  
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">wysero</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '2'},
+				on_finish: function(data) { 
+					if(data.key_press == 50){
+						data.correct = true;
+						results.push(2);
+					} else {
+						data.correct = false;
+						results.push(1);
+					}
+				}   
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">gysero</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '2'},
+				on_finish: function(data) { 
+					if(data.key_press == 50){
+						data.correct = true;
+						results.push(2);
+					} else {
+						data.correct = false;
+						results.push(1);
+					}
+				}    
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">wasero</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '2'},
+				on_finish: function(data) { 
+					if(data.key_press == 50){
+						data.correct = true;
+						results.push(2);
+					} else {
+						data.correct = false;
+						results.push(1);
+					}
+				}    
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">wyfero</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '2'},
+				on_finish: function(data) { 
+					if(data.key_press == 50){
+						data.correct = true;
+						results.push(2);
+					} else {
+						data.correct = false;
+						results.push(1);
+					}
+				}    
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">wysuro</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '2'},
+				on_finish: function(data) { 
+					if(data.key_press == 50){
+						data.correct = true;
+						results.push(2);
+					} else {
+						data.correct = false;
+						results.push(1);
+					}
+				}    
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">wyseri</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '2'},
+				on_finish: function(data) { 
+					if(data.key_press == 50){
+						data.correct = true;
+						results.push(2);
+					} else {
+						data.correct = false;
+						results.push(1);
+					}
+				}    
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">wysezo</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '2'},
+				on_finish: function(data) { 
+					if(data.key_press == 50){
+						data.correct = true;
+						results.push(2);
+					} else {
+						data.correct = false;
+						results.push(1);
+					}
+				}    
 			}
-		},
-		{
-			type: 'html-keyboard-response', 
-			stimulus: '<div style="font-size:60px;">wafuzi</div>',
-			choices: ['1', '2'], 
-			data: {correct_response: '1'}, 
-			on_finish: function(data) { 
-    			if(data.key_press == 49){
-      				data.correct = true;
-					results.push(1);
-    			} else {
-      				data.correct = false;
-					results.push(2);
-    			}
+		],
+		[
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">gafuzi</div>',
+				choices: ['1', '2'], 
+				data: {correct_response: '1'}, 
+				on_finish: function(data) { 
+					if(data.key_press == 49){
+						data.correct = true;
+						results.push(1);
+					} else {
+						data.correct = false;
+						results.push(2);
+					}
+				}
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">wafuzi</div>',
+				choices: ['1', '2'], 
+				data: {correct_response: '1'}, 
+				on_finish: function(data) { 
+					if(data.key_press == 49){
+						data.correct = true;
+						results.push(1);
+					} else {
+						data.correct = false;
+						results.push(2);
+					}
+				}
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">gyfuzi</div>',
+				choices: ['1', '2'], 
+				data: {correct_response: '1'},
+				on_finish: function(data) { 
+					if(data.key_press == 49){
+						data.correct = true;
+						results.push(1);
+					} else {
+						data.correct = false;
+						results.push(2);
+					}
+				} 
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">gasuzi</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '1'},
+				on_finish: function(data) { 
+					if(data.key_press == 49){
+						data.correct = true;
+						results.push(1);
+					} else {
+						data.correct = false;
+						results.push(2);
+					}
+				}  
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">gafuri</div>',
+				choices: ['1', '2'], 
+				data: {correct_response: '1'},
+				on_finish: function(data) { 
+					if(data.key_press == 49){
+						data.correct = true;
+						results.push(1);
+					} else {
+						data.correct = false;
+						results.push(2);
+					}
+				}  
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">gafuzo</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '1'},
+				on_finish: function(data) { 
+					if(data.key_press == 49){
+						data.correct = true;
+						results.push(1);
+					} else {
+						data.correct = false;
+						results.push(2);
+					}
+				}   
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">wysezo</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '1'},
+				on_finish: function(data) { 
+					if(data.key_press == 49){
+						data.correct = true;
+						results.push(1);
+					} else {
+						data.correct = false;
+						results.push(2);
+					}
+				}  
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">wysero</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '2'},
+				on_finish: function(data) { 
+					if(data.key_press == 50){
+						data.correct = true;
+						results.push(2);
+					} else {
+						data.correct = false;
+						results.push(1);
+					}
+				}   
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">gysero</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '2'},
+				on_finish: function(data) { 
+					if(data.key_press == 50){
+						data.correct = true;
+						results.push(2);
+					} else {
+						data.correct = false;
+						results.push(1);
+					}
+				}    
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">wasero</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '2'},
+				on_finish: function(data) { 
+					if(data.key_press == 50){
+						data.correct = true;
+						results.push(2);
+					} else {
+						data.correct = false;
+						results.push(1);
+					}
+				}    
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">wyfero</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '2'},
+				on_finish: function(data) { 
+					if(data.key_press == 50){
+						data.correct = true;
+						results.push(2);
+					} else {
+						data.correct = false;
+						results.push(1);
+					}
+				}    
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">wysuro</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '2'},
+				on_finish: function(data) { 
+					if(data.key_press == 50){
+						data.correct = true;
+						results.push(2);
+					} else {
+						data.correct = false;
+						results.push(1);
+					}
+				}    
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">wyseri</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '2'},
+				on_finish: function(data) { 
+					if(data.key_press == 50){
+						data.correct = true;
+						results.push(2);
+					} else {
+						data.correct = false;
+						results.push(1);
+					}
+				}    
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">gafezi</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '2'},
+				on_finish: function(data) { 
+					if(data.key_press == 50){
+						data.correct = true;
+						results.push(2);
+					} else {
+						data.correct = false;
+						results.push(1);
+					}
+				}    
 			}
-		},
-		{
-			type: 'html-keyboard-response', 
-			stimulus: '<div style="font-size:60px;">gyfuzi</div>',
-			choices: ['1', '2'], 
-			data: {correct_response: '1'},
-			on_finish: function(data) { 
-    			if(data.key_press == 49){
-      				data.correct = true;
-					results.push(1);
-    			} else {
-      				data.correct = false;
-					results.push(2);
-    			}
-			} 
-		},
-		{
-			type: 'html-keyboard-response', 
-			stimulus: '<div style="font-size:60px;">gasuzi</div>',
-			choices: ['1', '2'],
-			data: {correct_response: '1'},
-			on_finish: function(data) { 
-    			if(data.key_press == 49){
-      				data.correct = true;
-					results.push(1);
-    			} else {
-      				data.correct = false;
-					results.push(2);
-    			}
-			}  
-		},
-		{
-			type: 'html-keyboard-response', 
-			stimulus: '<div style="font-size:60px;">gafuri</div>',
-			choices: ['1', '2'], 
-			data: {correct_response: '1'},
-			on_finish: function(data) { 
-    			if(data.key_press == 49){
-      				data.correct = true;
-					results.push(1);
-    			} else {
-      				data.correct = false;
-					results.push(2);
-    			}
-			}  
-		},
-		{
-			type: 'html-keyboard-response', 
-			stimulus: '<div style="font-size:60px;">gafuzo</div>',
-			choices: ['1', '2'],
-			data: {correct_response: '1'},
-			on_finish: function(data) { 
-    			if(data.key_press == 49){
-      				data.correct = true;
-					results.push(1);
-    			} else {
-      				data.correct = false;
-					results.push(2);
-    			}
-			}   
-		},
-		{
-			type: 'html-keyboard-response', 
-			stimulus: '<div style="font-size:60px;">wysezo</div>',
-			choices: ['1', '2'],
-			data: {correct_response: '1'},
-			on_finish: function(data) { 
-    			if(data.key_press == 49){
-      				data.correct = true;
-					results.push(1);
-    			} else {
-      				data.correct = false;
-					results.push(2);
-    			}
-			}  
-		 },
-		{
-			type: 'html-keyboard-response', 
-			stimulus: '<div style="font-size:60px;">wysero</div>',
-			choices: ['1', '2'],
-			data: {correct_response: '2'},
-			on_finish: function(data) { 
-    			if(data.key_press == 50){
-      				data.correct = true;
-					results.push(2);
-    			} else {
-      				data.correct = false;
-					results.push(1);
-    			}
-			}   
-		},
-		{
-			type: 'html-keyboard-response', 
-			stimulus: '<div style="font-size:60px;">gysero</div>',
-			choices: ['1', '2'],
-			data: {correct_response: '2'},
-			on_finish: function(data) { 
-    			if(data.key_press == 50){
-      				data.correct = true;
-					results.push(2);
-    			} else {
-      				data.correct = false;
-					results.push(1);
-    			}
-			}    
-		},
-		{
-			type: 'html-keyboard-response', 
-			stimulus: '<div style="font-size:60px;">wasero</div>',
-			choices: ['1', '2'],
-			data: {correct_response: '2'},
-			on_finish: function(data) { 
-    			if(data.key_press == 50){
-      				data.correct = true;
-					results.push(2);
-    			} else {
-      				data.correct = false;
-					results.push(1);
-    			}
-			}    
-		},
-		{
-			type: 'html-keyboard-response', 
-			stimulus: '<div style="font-size:60px;">wyfero</div>',
-			choices: ['1', '2'],
-			data: {correct_response: '2'},
-			on_finish: function(data) { 
-    			if(data.key_press == 50){
-      				data.correct = true;
-					results.push(2);
-    			} else {
-      				data.correct = false;
-					results.push(1);
-    			}
-			}    
-		},
-		{
-			type: 'html-keyboard-response', 
-			stimulus: '<div style="font-size:60px;">wysuro</div>',
-			choices: ['1', '2'],
-			data: {correct_response: '2'},
-			on_finish: function(data) { 
-    			if(data.key_press == 50){
-      				data.correct = true;
-					results.push(2);
-    			} else {
-      				data.correct = false;
-					results.push(1);
-    			}
-			}    
-		},
-		{
-			type: 'html-keyboard-response', 
-			stimulus: '<div style="font-size:60px;">wyseri</div>',
-			choices: ['1', '2'],
-			data: {correct_response: '2'},
-			on_finish: function(data) { 
-    			if(data.key_press == 50){
-      				data.correct = true;
-					results.push(2);
-    			} else {
-      				data.correct = false;
-					results.push(1);
-    			}
-			}    
-		},
-		{
-			type: 'html-keyboard-response', 
-			stimulus: '<div style="font-size:60px;">gafezi</div>',
-			choices: ['1', '2'],
-			data: {correct_response: '2'},
-			on_finish: function(data) { 
-    			if(data.key_press == 50){
-      				data.correct = true;
-					results.push(2);
-    			} else {
-      				data.correct = false;
-					results.push(1);
-    			}
-			}    
-		}
+		],
+		[
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">gafuzi</div>',
+				choices: ['1', '2'], 
+				data: {correct_response: '1'}, 
+				on_finish: function(data) { 
+					if(data.key_press == 49){
+						data.correct = true;
+						results.push(1);
+					} else {
+						data.correct = false;
+						results.push(2);
+					}
+				}
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">wafuzi</div>',
+				choices: ['1', '2'], 
+				data: {correct_response: '1'}, 
+				on_finish: function(data) { 
+					if(data.key_press == 49){
+						data.correct = true;
+						results.push(1);
+					} else {
+						data.correct = false;
+						results.push(2);
+					}
+				}
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">gyfuzi</div>',
+				choices: ['1', '2'], 
+				data: {correct_response: '1'},
+				on_finish: function(data) { 
+					if(data.key_press == 49){
+						data.correct = true;
+						results.push(1);
+					} else {
+						data.correct = false;
+						results.push(2);
+					}
+				} 
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">gafuri</div>',
+				choices: ['1', '2'], 
+				data: {correct_response: '1'},
+				on_finish: function(data) { 
+					if(data.key_press == 49){
+						data.correct = true;
+						results.push(1);
+					} else {
+						data.correct = false;
+						results.push(2);
+					}
+				}  
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">gafuzo</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '1'},
+				on_finish: function(data) { 
+					if(data.key_press == 49){
+						data.correct = true;
+						results.push(1);
+					} else {
+						data.correct = false;
+						results.push(2);
+					}
+				}   
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">wysezo</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '1'},
+				on_finish: function(data) { 
+					if(data.key_press == 49){
+						data.correct = true;
+						results.push(1);
+					} else {
+						data.correct = false;
+						results.push(2);
+					}
+				}  
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">wasero</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '1'},
+				on_finish: function(data) { 
+					if(data.key_press == 49){
+						data.correct = true;
+						results.push(1);
+					} else {
+						data.correct = false;
+						results.push(2);
+					}
+				}  
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">wysero</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '2'},
+				on_finish: function(data) { 
+					if(data.key_press == 50){
+						data.correct = true;
+						results.push(2);
+					} else {
+						data.correct = false;
+						results.push(1);
+					}
+				}   
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">gysero</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '2'},
+				on_finish: function(data) { 
+					if(data.key_press == 50){
+						data.correct = true;
+						results.push(2);
+					} else {
+						data.correct = false;
+						results.push(1);
+					}
+				}    
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">wyfero</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '2'},
+				on_finish: function(data) { 
+					if(data.key_press == 50){
+						data.correct = true;
+						results.push(2);
+					} else {
+						data.correct = false;
+						results.push(1);
+					}
+				}    
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">wysuro</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '2'},
+				on_finish: function(data) { 
+					if(data.key_press == 50){
+						data.correct = true;
+						results.push(2);
+					} else {
+						data.correct = false;
+						results.push(1);
+					}
+				}    
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">wyseri</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '2'},
+				on_finish: function(data) { 
+					if(data.key_press == 50){
+						data.correct = true;
+						results.push(2);
+					} else {
+						data.correct = false;
+						results.push(1);
+					}
+				}    
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">gafezi</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '2'},
+				on_finish: function(data) { 
+					if(data.key_press == 50){
+						data.correct = true;
+						results.push(2);
+					} else {
+						data.correct = false;
+						results.push(1);
+					}
+				}    
+			},
+			{
+				type: 'html-keyboard-response', 
+				stimulus: '<div style="font-size:60px;">gasuzi</div>',
+				choices: ['1', '2'],
+				data: {correct_response: '2'},
+				on_finish: function(data) { 
+					if(data.key_press == 50){
+						data.correct = true;
+						results.push(2);
+					} else {
+						data.correct = false;
+						results.push(1);
+					}
+				}    
+			}
+		]
 	];
 	
 	var feedback = {
@@ -300,9 +736,10 @@
 		trial_duration: 1000
 	};
 
+	console.log("index: ", index);
 	var i;
 	for (i = 0; i < 616; i++) {
-		timeline.push(trial_stimuli[stims[i]], feedback);
+		timeline.push(trial_stimuli[index][stims[i]], feedback);
 	}
 
 	var reached_end = 0;

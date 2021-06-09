@@ -38,7 +38,7 @@ def save_data():
 
 	all_results = []
 	s3 = boto3.resource('s3')
-	obj = s3.Object('psy454', 'results.csv')
+	obj = s3.Object('psy454', 'results_v2.csv')
 	with io.StringIO(obj.get()['Body'].read().decode('utf-8')) as fp:
 		reader = csv.reader(fp)
 		for row in reader:
@@ -56,7 +56,7 @@ def save_data():
 def exit_early():
 	num = int(request.form["num"])
 	s3 = boto3.resource('s3')
-	obj = s3.Object('psy454', 'available_lists.csv')
+	obj = s3.Object('psy454', 'available_lists_v2.csv')
 	available_list = []
 	with io.StringIO(obj.get()['Body'].read().decode('utf-8')) as fp:
 		reader = csv.reader(fp)
@@ -74,7 +74,7 @@ def exit_early():
 
 def cvs_num():
 	s3 = boto3.resource('s3')
-	obj = s3.Object('psy454', 'available_lists.csv')
+	obj = s3.Object('psy454', 'available_lists_v2.csv')
 	available_list = []
 	with io.StringIO(obj.get()['Body'].read().decode('utf-8')) as fp:
 		reader = csv.reader(fp)
